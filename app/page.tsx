@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Loader2, Send, Trash2, Newspaper } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
+import { Lightbulb, BookText } from "lucide-react";
 
 // Import a markdown renderer if you want to properly display links and formatting
 // You'll need to install it: npm install react-markdown remark-gfm
@@ -112,7 +113,7 @@ export default function DawnNewsAI() {
             Ask questions about Dawn newspaper editorials using natural language. Get summaries, URLs, headlines, and
             analysis from the editorial section.
           </p>
-          <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-sm text-yellow-800 text-left">
+          {/* <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-sm text-yellow-800 text-left">
             <h3 className="font-semibold text-base mb-2">How to use me:</h3>
             <ul className="list-disc pl-5 space-y-1">
               <li>**Scrape Articles by Date:** `articles from today`, `news from yesterday`, `get articles from 2025-06-15`, `find news between 2025-06-10 and 2025-06-12`.</li>
@@ -120,8 +121,34 @@ export default function DawnNewsAI() {
               <li>**Vocabulary/Phrases (Default):** If you *only* provide dates (e.g., "articles from today"), I will automatically provide vocabulary words and phrases from the articles.</li>
               <li>**Important:** I only process queries related to **Dawn newspaper editorial articles**.</li>
             </ul>
+          </div> */}
+          <div className="mt-4 flex flex-row gap-4 justify-center">
+            {/* 1. Scrape Articles by Date */}
+            <div className="flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-lg shadow-sm min-w-[220px]">
+              <BookText className="h-7 w-7 text-slate-700" />
+              <div>
+                <span className="font-semibold text-slate-800 text-sm block">By Date</span>
+                <span className="text-slate-600 text-xs">e.g. <span className="font-mono bg-slate-100 px-1 rounded">articles from today</span></span>
+              </div>
+            </div>
+            {/* 2. Specific Information Requests */}
+            <div className="flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-lg shadow-sm min-w-[220px]">
+              <Send className="h-7 w-7 text-blue-600" />
+              <div>
+                <span className="font-semibold text-slate-800 text-sm block">Info Requests</span>
+                <span className="text-slate-600 text-xs">e.g. <span className="font-mono bg-slate-100 px-1 rounded">Get context, summaries, and URLs instantly.</span></span>
+              </div>
+            </div>
+            {/* 3. Vocabulary/Phrases */}
+            <div className="flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-lg shadow-sm min-w-[220px]">
+              <Lightbulb className="h-7 w-7 text-green-600" />
+              <div>
+                <span className="font-semibold text-slate-800 text-sm block">Vocabulary</span>
+                <span className="text-slate-600 text-xs">e.g. <span className="font-mono bg-slate-100 px-1 rounded">Get vocab, idioms & phrases—just enter an editorial date.</span></span>
+              </div>
+            </div>
           </div>
-        </div>
+          </div>
 
         {/* Input Section */}
         <Card className="mb-6 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
@@ -240,8 +267,8 @@ export default function DawnNewsAI() {
                   "Summarize the editorials from June 10",
                   "I just want the URLs from yesterday",
                   "What are the main topics discussed recently?",
-                  "Show me headlines from this month",
-                  "Find articles about economic policy",
+                  // "Show me headlines from this month",
+                  // "Find articles about economic policy",
                 ].map((example, index) => (
                   <button
                     key={index}
