@@ -122,9 +122,9 @@ export default function DawnNewsAI() {
               <li>**Important:** I only process queries related to **Dawn newspaper editorial articles**.</li>
             </ul>
           </div> */}
-          <div className="mt-4 flex flex-row gap-4 justify-center">
+           <div className="mt-4 flex flex-row gap-4 justify-center flex-wrap">
             {/* 1. Scrape Articles by Date */}
-            <div className="flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-lg shadow-sm min-w-[220px]">
+            <div className="flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-lg shadow-sm min-w-[220px] w-full sm:w-auto">
               <BookText className="h-7 w-7 text-slate-700" />
               <div>
                 <span className="font-semibold text-slate-800 text-sm block">By Date</span>
@@ -132,15 +132,15 @@ export default function DawnNewsAI() {
               </div>
             </div>
             {/* 2. Specific Information Requests */}
-            <div className="flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-lg shadow-sm min-w-[220px]">
+            <div className="flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-lg shadow-sm min-w-[220px] w-full sm:w-auto">
               <Send className="h-7 w-7 text-blue-600" />
               <div>
-                <span className="font-semibold text-slate-800 text-sm block">Info Requests</span>
-                <span className="text-slate-600 text-xs">e.g. <span className="font-mono bg-slate-100 px-1 rounded">Get context, summaries, and URLs instantly.</span></span>
+                <span className="font-semibold text-slate-800 text-sm block">Topic Related Articles</span>
+                <span className="text-slate-600 text-xs">e.g. <span className="font-mono bg-slate-100 px-1 rounded">Get all articles related to your topic within the specified date range</span></span>
               </div>
             </div>
             {/* 3. Vocabulary/Phrases */}
-            <div className="flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-lg shadow-sm min-w-[220px]">
+            <div className="flex items-center gap-2 p-3 bg-slate-50 border border-slate-200 rounded-lg shadow-sm min-w-[220px] w-full sm:w-auto">
               <Lightbulb className="h-7 w-7 text-green-600" />
               <div>
                 <span className="font-semibold text-slate-800 text-sm block">Vocabulary</span>
@@ -157,11 +157,11 @@ export default function DawnNewsAI() {
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="flex gap-2">
+              <div className="flex flex-col sm:flex-row gap-2">
                 <Input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="e.g., Give me articles from last week, Summarize editorials from June 10..."
+                  placeholder="e.g., Give me articles about the economy from last week"
                   className="flex-1 text-base py-3 px-4 border-slate-200 focus:border-slate-400 focus:ring-slate-400"
                   disabled={isLoading}
                 />
@@ -173,7 +173,6 @@ export default function DawnNewsAI() {
                   {isLoading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Send className="h-4 w-4" />}
                 </Button>
               </div>
-
               {(result || error) && (
                 <Button
                   type="button"
@@ -211,13 +210,13 @@ export default function DawnNewsAI() {
         )}
 
         {/* Results */}
-        {result && (
+                {result && (
           <Card className="shadow-lg border-0 bg-white/80 backdrop-blur-sm">
             <CardHeader>
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex-1">
+              <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
+                <div className="flex-1 w-full">
                   <CardTitle className="text-lg font-semibold text-slate-700 mb-2">Your Query</CardTitle>
-                  <p className="text-slate-600 bg-slate-50 p-3 rounded-lg border">{result.query}</p>
+                  <p className="text-slate-600 bg-slate-50 p-3 rounded-lg border break-words">{result.query}</p>
                 </div>
                 <div className="text-xs text-slate-500 whitespace-nowrap">{result.timestamp.toLocaleString()}</div>
               </div>
@@ -225,17 +224,12 @@ export default function DawnNewsAI() {
             <CardContent>
               <h3 className="text-lg font-semibold text-slate-700 mb-3">AI Assistant Response</h3>
               <div className="bg-slate-900 text-slate-100 p-4 rounded-lg overflow-auto max-h-96 border">
-                {/* Use ReactMarkdown to render the response text, which can contain URLs */}
                 <ReactMarkdown
-                  // className="font-mono text-sm whitespace-pre-wrap leading-relaxed markdown-content" // Add a class for potential styling
-                  remarkPlugins={[remarkGfm]} // Essential for parsing links, lists etc.
+                  remarkPlugins={[remarkGfm]}
                 >
                   {result.responseText}
                 </ReactMarkdown>
               </div>
-
-
-
               {result.articles && result.articles.length > 0 && (
                 <div className="mt-6">
                   <h3 className="text-lg font-semibold text-slate-700 mb-3">Scraped Articles:</h3>
@@ -266,14 +260,12 @@ export default function DawnNewsAI() {
                   "Give me articles from last week",
                   "Summarize the editorials from June 10",
                   "I just want the URLs from yesterday",
-                  "What are the main topics discussed recently?",
-                  // "Show me headlines from this month",
-                  // "Find articles about economic policy",
+                  "Give articles URLs related to economy in last 5 days",
                 ].map((example, index) => (
                   <button
                     key={index}
                     onClick={() => setQuery(example)}
-                    className="text-left p-3 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-colors text-sm text-slate-700"
+                    className="text-left p-3 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 transition-colors text-sm text-slate-700 w-full"
                   >
                     "{example}"
                   </button>
