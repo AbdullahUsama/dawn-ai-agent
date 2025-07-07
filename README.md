@@ -25,10 +25,7 @@ This project consists of a backend API built with FastAPI and LangChain, deploye
     -   _(Note: Vocabulary and idiom lists are provided by default when only dates are queried. If a specific request like "summarize" or "get URLs" is made, only that specific request is fulfilled.)_
         
 -   **Flexible Date Handling:** Supports relative date inputs (e.g., "today", "yesterday", "last week") and converts them to `YYYY-MM-DD` format for scraping.
-    
--   **API Interface:** Provides a simple RESTful API endpoint for interaction.
-    
--   **CORS Enabled:** Configured to allow cross-origin requests, facilitating seamless integration with the frontend application.
+
     
 
 ## Technologies Used
