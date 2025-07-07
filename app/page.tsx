@@ -257,9 +257,9 @@ export default function DawnNewsAI() {
             <CardContent>
               <div className="grid gap-2 sm:grid-cols-2">
                 {[
-                  "Give me articles from last week",
-                  "Summarize the editorials from June 10",
-                  "I just want the URLs from yesterday",
+                  "Give me articles from last week from Dawn Opinions",
+                  "Get Tribune news URLs from last 3 days",
+                  "I want International Relation Articles from paradigmShift",
                   "Give articles URLs related to economy in last 5 days",
                 ].map((example, index) => (
                   <button
