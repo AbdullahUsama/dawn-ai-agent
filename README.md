@@ -1,15 +1,15 @@
-# DAWN News AI Assistant | Website: [link](https://dawn-ai-frontend.vercel.app/)
+# News AI Assistant (DAWN - Op&Ed, The Tribune, ParadigmShift - National & IR) | Website: [link](https://dawn-ai-frontend.vercel.app/)
 
 
 ## Overview
 
-The DAWN News AI Assistant is an intelligent agent designed to help students and users understand editorial articles from DAWN newspaper. It provides various functionalities, including getting all the articles related to a certain topic, scraping articles, extracting key information like URLs, and offering educational insights such as vocabulary words and idioms from the content. It is especially for CSS/PMS aspirants who must have good voacb, current affairs and general knowledge for which DAWN Editorials is the best in Pakistan!
+The Pakistan News AI Assistant is an intelligent agent designed to help students and users understand editorial and opinion articles from DAWN (Editorial & Op-Ed), The Tribune (Editorial), and ParadigmShift (National & International Relations) newspapers. It provides various functionalities, including getting all the articles related to a certain topic, scraping articles, extracting key information like URLs, and offering educational insights such as vocabulary words and idioms from the content. It is especially for CSS/PMS aspirants who must have good vocab, current affairs, and general knowledge, for which editorials and analyses from these Pakistani newspapers are highly beneficial.
 
 This project consists of a backend API built with FastAPI and LangChain, deployed on Render, and a frontend developed with Next.js, deployed on Vercel.
 
 ## Features
 
--   ** Getting Topic-Related Articles: ** If you want to have articles on a certain topic with certain date range, you can get it!
+-   **Getting Topic-Related Articles:** If you want to have articles on a certain topic with certain date range, you can get it!
 -   **Article Scraping:** Fetches editorial articles from DAWN newspaper for specified dates or date ranges.
     
 -   **Content Extraction:** Extracts article titles, full content, and URLs.
