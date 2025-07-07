@@ -107,10 +107,10 @@ export default function DawnNewsAI() {
         <div className="text-center mb-8 pt-8">
           <div className="flex items-center justify-center gap-3 mb-4">
             <Newspaper className="h-8 w-8 text-slate-700" />
-            <h1 className="text-3xl font-bold text-slate-800">Dawn News AI Assistant</h1>
+            <h1 className="text-3xl font-bold text-slate-800">News AI Assistant</h1>
           </div>
           <p className="text-slate-600 max-w-2xl mx-auto">
-            Ask questions about Dawn newspaper editorials using natural language. Get summaries, URLs, headlines, and
+            Ask questions about Dawn Editorials & Opinions, Tribune, ParadigmShift newspapers editorials using natural language. Get summaries, URLs, headlines, and
             analysis from the editorial section.
           </p>
           {/* <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-sm text-yellow-800 text-left">
@@ -194,7 +194,7 @@ export default function DawnNewsAI() {
             <CardContent className="py-8">
               <div className="flex items-center justify-center gap-3 text-slate-600">
                 <Loader2 className="h-5 w-5 animate-spin" />
-                <span>Analyzing Dawn editorials...</span>
+                <span>Searching News Resources ... </span>
               </div>
             </CardContent>
           </Card>
