@@ -9,6 +9,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Loader2, Send, Trash2, Newspaper } from "lucide-react"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Lightbulb, BookText } from "lucide-react";
+import dawnImg from '../public/dawn.png'
+import tribuneImg from '../public/tribuneImg.png'
+import PSImg from '../public/PSImg.png'
+
 
 // Import a markdown renderer if you want to properly display links and formatting
 // You'll need to install it: npm install react-markdown remark-gfm
@@ -136,7 +140,7 @@ export default function DawnNewsAI() {
               <Send className="h-7 w-7 text-blue-600" />
               <div>
                 <span className="font-semibold text-slate-800 text-sm block">Topic Related Articles</span>
-                <span className="text-slate-600 text-xs">e.g. <span className="font-mono bg-slate-100 px-1 rounded">Get all articles related to your topic within the specified date range</span></span>
+                <span className="text-slate-600 text-xs">e.g. <span className="font-mono bg-slate-100 px-1 rounded">Find articles by topic</span></span>
               </div>
             </div>
             {/* 3. Vocabulary/Phrases */}
@@ -144,11 +148,29 @@ export default function DawnNewsAI() {
               <Lightbulb className="h-7 w-7 text-green-600" />
               <div>
                 <span className="font-semibold text-slate-800 text-sm block">Vocabulary</span>
-                <span className="text-slate-600 text-xs">e.g. <span className="font-mono bg-slate-100 px-1 rounded">Get vocab, idioms & phrases—just enter an editorial date.</span></span>
+                <span className="text-slate-600 text-xs">e.g. <span className="font-mono bg-slate-100 px-1 rounded">Get vocab, idioms & phrases </span></span>
               </div>
             </div>
           </div>
           </div>
+
+        {/* Newspaper Logos Section - Rounded Rectangles */}
+        <div className="mb-6 flex flex-wrap justify-center items-center gap-4">
+          {/* Dawn Logo */}
+          <div className="p-3 bg-white/70 backdrop-blur-sm rounded-lg shadow-sm flex items-center justify-center border border-slate-200">
+            <img src={dawnImg.src} alt="Dawn Newspaper Logo" className="h-7 sm:h-9 object-contain" />
+          </div>
+
+          {/* The News Logo */}
+          <div className="p-3 bg-white/70 backdrop-blur-sm rounded-lg shadow-sm flex items-center justify-center border border-slate-200">
+            <img src={tribuneImg.src} alt="The News Newspaper Logo" className="h-7 sm:h-9 object-contain" />
+          </div>
+
+          {/* Business Recorder Logo */}
+          <div className="p-3 bg-white/70 backdrop-blur-sm rounded-lg shadow-sm flex items-center justify-center border border-slate-200">
+            <img src={PSImg.src} alt="Business Recorder Newspaper Logo" className="h-7 sm:h-9 object-contain" />
+          </div>
+        </div>
 
         {/* Input Section */}
         <Card className="mb-6 shadow-lg border-0 bg-white/80 backdrop-blur-sm">
@@ -187,6 +209,8 @@ export default function DawnNewsAI() {
             </form>
           </CardContent>
         </Card>
+
+
 
         {/* Loading State */}
         {isLoading && (
